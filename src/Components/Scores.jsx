@@ -1,12 +1,13 @@
+import '../styles/Scores.css'
 export default function Scores({ score, bestScore }) {
     return (
         <>
             <header>
                 <nav>
-                    <h1><a href="/">Pokémon Memory Quest</a></h1>
+                    <h1>Pokémon Memory Quest</h1>
                     <div className="scoreBoard-container">
-                        <p>Score: <span>{score}</span></p>
-                        <p>Best Score: <span>{bestScore}</span></p>
+                        <p>Your Score: {score}</p>
+                        <p>Best Score: {bestScore}</p>
                     </div>
                 </nav>
             </header>
@@ -15,7 +16,7 @@ export default function Scores({ score, bestScore }) {
                 Gotta catch `em all!
                 </h2>
                 <p>
-                    Dont click on the same card twice!
+                Dont click on the same card twice!
                 </p>
             </section>
         </>
