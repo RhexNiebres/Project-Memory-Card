@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Cards from "./components/Cards";
 import Scores from "./components/Scores";
-impo
+import './styles/App.css'
 
 const getRandomNumber = () => Math.floor(Math.random() * 150);
 
