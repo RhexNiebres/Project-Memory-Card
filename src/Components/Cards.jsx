@@ -1,5 +1,5 @@
 import { useState, useEffect} from 'react'
-
+import '../styles/Cards.css'
 export default function Cards({ pokemon, onClick }) {
     const [pokemons, setPokemons] = useState([])
     const [loading,setLoading] = useState(true)
