@@ -1,8 +1,14 @@
-# React + Vite
+# Pokémon Memory Card Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun memory card game where you have to match Pokémon cards while testing your memory skills! The game allows you to choose between different difficulty levels and keeps track of your score.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Select Difficulty**: Choose from three difficulty levels:
+  - **Easy** (6 Pokémon)
+  - **Medium** (9 Pokémon)
+  - **Hard** (12 Pokémon)
+  
+- **Memory Game**: Click on cards. If you click the same card twice, you'll Lose!.
+  
+- **Score Tracking**: The game tracks your current score and your highest score (best score) for each session.
