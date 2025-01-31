@@ -52,6 +52,7 @@ function App() {
       const newPokemons = [...prevPokemons];
 
       if (newPokemons[index].clicked) {
+        alert('Game Over! you already clicked that Pokemon')// to be improved (reder a game over )
         setBestScore((prevBestScore) => Math.max(prevBestScore, score));
         setScore(0); // Reset score
         return generatePokemonList(difficulty); // Generate new set of Pokémon based on difficulty
