@@ -1,0 +1,18 @@
+div.difficulty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    h3{
+        font-weight: 900;
+        
+    }
+    select{
+        width: 200px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 2px solid white;
+    }
+}
+
+
