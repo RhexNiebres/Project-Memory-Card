@@ -12,6 +12,11 @@ div.difficulty{
         padding: 5px;
         border-radius: 5px;
         border: 2px solid white;
+        text-align: center;
+        
+    }
+    select:hover{
+        transform: scale(1.1);
     }
 }
 
