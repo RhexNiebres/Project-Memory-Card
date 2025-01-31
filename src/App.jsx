@@ -4,7 +4,7 @@ import Scores from './Components/Scores.jsx';
 import DifficultySelector from './Components/Difficulty.jsx';
 import './styles/App.css'
 
-const getRandomNumber = () => Math.floor(Math.random() * 150);
+const getRandomNumber = () => Math.floor(Math.random() * 151);
 
 const shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -50,10 +50,11 @@ function App() {
   const handleCardClick = (index) => {
     setPokemons((prevPokemons) => {
       const newPokemons = [...prevPokemons];
+
       if (newPokemons[index].clicked) {
         setBestScore((prevBestScore) => Math.max(prevBestScore, score));
         setScore(0); // Reset score
-        return generatePokemonList(difficulty); // Generate new set of Pokémon
+        return generatePokemonList(difficulty); // Generate new set of Pokémon based on difficulty
       } else {
         newPokemons[index].clicked = true;
         setScore((prevScore) => prevScore + 1);
