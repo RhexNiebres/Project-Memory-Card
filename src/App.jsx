@@ -1,6 +1,7 @@
 import { useState } from "react";
-import Cards from "./components/Cards";
-import Scores from "./components/Scores";
+import Cards from "./Components/Cards.jsx";
+import Scores from './Components/Scores.jsx';
+import DifficultySelector from './Components/Difficulty.jsx';
 import './styles/App.css'
 
 const getRandomNumber = () => Math.floor(Math.random() * 150);
@@ -13,17 +14,38 @@ const shuffleArray = (array) => {
   return array;
 };
 
-const generatePokemonList = () => {
-  return Array.from({ length: 10 }, () => ({
+const generatePokemonList = (difficulty) => {
+  let length;
+  switch(difficulty){
+    case "easy":
+      length = 6
+      break;
+      case "medium":
+      length = 9
+      break;
+      case "hard":
+      length = 12
+      break;
+      default:
+      length = 6
+  }
+
+  return Array.from({ length }, () => ({ 
     id: getRandomNumber(),
     clicked: false,
   }));
 };
 
 function App() {
-  const [pokemons, setPokemons] = useState(generatePokemonList());
+  const [difficulty, setDifficulty] = useState("easy");
+  const [pokemons, setPokemons] = useState(generatePokemonList("easy"));
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
+
+  const handleDifficultyChange = (newDifficulty) => {
+    setDifficulty(newDifficulty);
+    setPokemons(generatePokemonList(newDifficulty));
+  };
 
   const handleCardClick = (index) => {
     setPokemons((prevPokemons) => {
@@ -31,7 +53,7 @@ function App() {
       if (newPokemons[index].clicked) {
         setBestScore((prevBestScore) => Math.max(prevBestScore, score));
         setScore(0); // Reset score
-        return generatePokemonList(); // Generate new set of Pokémon
+        return generatePokemonList(difficulty); // Generate new set of Pokémon
       } else {
         newPokemons[index].clicked = true;
         setScore((prevScore) => prevScore + 1);
@@ -47,6 +69,7 @@ function App() {
   return (
     <>
       <Scores score={score} bestScore={bestScore} />
+      <DifficultySelector onDifficultyChange={handleDifficultyChange}/>
       <div className="card-container">
         {pokemons.map((pokemon, index) => (
           <Cards
